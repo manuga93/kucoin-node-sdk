@@ -45,6 +45,20 @@ exports.postOrder = async function postOrder(baseParams = {}, orderParams = {}) 
   });
 };
 
+exports.postMarginOrder = async function postMarginOrder(baseParams = {}, orderParams = {}) {
+  /*
+  {
+    "orderId": "5bd6e9286d99522a52e458de",
+    "borrowSize":10.2,
+    "loanApplyId":"600656d9a33ac90009de4f6f"
+  }
+  */
+  return await Http().POST('/api/v1/margin/order', {
+    ...baseParams,
+    ...orderParams,
+  });
+};
+
 /**
  * @name postMultiOrders
  * @description Place Bulk Orders. This endpoint requires the "Trade" permission.
